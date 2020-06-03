@@ -1,0 +1,25 @@
+<form [formGroup]="formFicha" (ngSubmit)="onSubmit()">
+  <div class="form-group">
+    <label for="cliente">Cliente</label>
+    <input type="text" class="form-control" name="cliente" id="cliente" formControlName="cliente">
+  </div>
+
+  <div class="form-group">
+    <label for="solicitante">Solicitante</label>
+    <input type="text" class="form-control" name="solicitante" id="solicitante" formControlName="solicitante">
+  </div>
+
+  <div class="form-group">
+    <label for="descricao">Descrição</label>
+    <textarea class="form-control" rows="3" name="descricao" id="descricao" formControlName="descricao"></textarea>
+  </div>
+
+  <div class="form-group">
+    <label for="cliente">Cliente</label>
+    <input type="date" class="form-control" name="data" id="data" formControlName="data">
+  </div>
+
+  <input type="submit" class="button" value="Salvar">
+  <a href="#">Cancelar</a>
+
+</form>
