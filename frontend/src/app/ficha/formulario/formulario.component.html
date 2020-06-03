@@ -1,25 +1,30 @@
-<form [formGroup]="formFicha" (ngSubmit)="onSubmit()">
+<form class="needs-validation" novalidate [formGroup]="formFicha" (ngSubmit)="onSubmit()">
   <div class="form-group">
     <label for="cliente">Cliente</label>
-    <input type="text" class="form-control" name="cliente" id="cliente" formControlName="cliente">
+    <input type="text" class="form-control" name="cliente" id="cliente" formControlName="cliente" [ngClass]="{ 'is-ivalid': submitted && hasError('cliente') }">
+    <div class="invalid-feedback" *ngIf="hasError('cliente') && hasError('cliente') ['required']">
+      Por favor informe o cliente.
+    </div>
   </div>
 
   <div class="form-group">
     <label for="solicitante">Solicitante</label>
-    <input type="text" class="form-control" name="solicitante" id="solicitante" formControlName="solicitante">
+    <input type="text" class="form-control" name="solicitante" id="solicitante" formControlName="solicitante" [ngClass]="{ 'is-ivalid': submitted && hasError('solicitante') }">
   </div>
 
   <div class="form-group">
     <label for="descricao">Descrição</label>
-    <textarea class="form-control" rows="3" name="descricao" id="descricao" formControlName="descricao"></textarea>
+    <textarea class="form-control" rows="3" name="descricao" id="descricao" formControlName="descricao" [ngClass]="{ 'is-ivalid': submitted && hasError('descricao') }"></textarea>
   </div>
 
   <div class="form-group">
-    <label for="cliente">Cliente</label>
-    <input type="date" class="form-control" name="data" id="data" formControlName="data">
+    <label for="data">Data</label>
+    <input type="date" class="form-control" name="data" id="data" formControlName="data" [ngClass]="{ 'is-ivalid': submitted && hasError('data') }" >
   </div>
 
-  <input type="submit" class="button" value="Salvar">
-  <a href="#">Cancelar</a>
+  <div>
+    <button type="submit" class="btn btn-primary" (click)="onSubmit()">Confirmar ficha</button>
+    <button type="submit" class="btn btn-default" (click)="onCancel()">Cancelar ficha</button>
+  </div>
 
 </form>

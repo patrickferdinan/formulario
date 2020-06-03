@@ -1,6 +1,6 @@
+import { FichasService } from './../../fichas.service';
 import { Component, OnInit } from '@angular/core';
-import { Ficha } from '../shared/ficha';
-import { FormBuilder, FormGroup } from '@angular/forms';
+import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 
 @Component({
   selector: 'app-formulario',
@@ -9,26 +9,40 @@ import { FormBuilder, FormGroup } from '@angular/forms';
 })
 export class FormularioComponent implements OnInit {
   formFicha: FormGroup;
+  submitted = false;
 
-  constructor(private formBuilder: FormBuilder) { }
+  constructor(private formBuilder: FormBuilder, private service: FichasService) { }
 
   ngOnInit() {
-    this.createForm(new Ficha());
-  }
-
-  createForm(ficha: Ficha) {
     this.formFicha = this.formBuilder.group({
-      cliente: [ficha.cliente],
-      solicitante: [ficha.solicitante],
-      descricao: [ficha.descricao],
-      data: [ficha.data]
+      cliente: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      solicitante: [null, [Validators.required, Validators.minLength(3), Validators.maxLength(10)]],
+      descricao: [null, [Validators.required, Validators.maxLength(250)]],
+      data: [null, [Validators.required, Validators.minLength(6), Validators.maxLength(8)]]
     });
   }
 
+  hasError(field: string){
+    return this.formFicha.get(field).errors;
+  }
   onSubmit() {
+    this.submitted = true;
     console.log(this.formFicha.value);
+    if (this.formFicha.valid){
+      console.log('submit');
+      this.service.create(this.formFicha.value).subscribe(
+        success => console.log('sucesso'),
+        error => console.log('error')
+      );
+    }
+  }
 
-    this.formFicha.reset(new Ficha());
+  onCancel() {
+    this.submitted = false;
+    this.formFicha.reset();
+    console.log('onCancel');
   }
 
 }
+
+
