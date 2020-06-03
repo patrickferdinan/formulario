@@ -1,15 +1,21 @@
+import { API } from './../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
+import { Ficha } from './ficha/shared/ficha';
 
 @Injectable({
   providedIn: 'root'
 })
 export class FichasService {
 
-  fichasUrl = 'http://localhost:3333/ficha';
-  constructor(private http: HttpClient) { }
+  constructor(public http: HttpClient) { }
 
-  create(ficha) {
-    return this.http.post(this.fichasUrl,  ficha).pipe();
+  create(obj: Ficha){
+    return this.http.post(
+      `${API.fichaUrl}/ficha`, obj, {
+        observe: 'response',
+        responseType: 'text'
+      }
+    );
   }
 }

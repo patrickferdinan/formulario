@@ -1,6 +1,7 @@
 import { FichasService } from './../../fichas.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
+import { Ficha } from '../shared/ficha';
 
 @Component({
   selector: 'app-formulario',
@@ -10,8 +11,9 @@ import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 export class FormularioComponent implements OnInit {
   formFicha: FormGroup;
   submitted = false;
+  ficha = new Ficha();
 
-  constructor(private formBuilder: FormBuilder, private service: FichasService) { }
+  constructor(private formBuilder: FormBuilder, public service: FichasService) { }
 
   ngOnInit() {
     this.formFicha = this.formBuilder.group({
@@ -27,14 +29,18 @@ export class FormularioComponent implements OnInit {
   }
   onSubmit() {
     this.submitted = true;
+    this.ficha = this.formFicha.value;
+
+    console.log(this.ficha);
+
+    this.service.create(this.ficha)
+      .subscribe(response => {
+        console.log(response);
+      }, error => {
+        console.log(error);
+      });
+
     console.log(this.formFicha.value);
-    if (this.formFicha.valid){
-      console.log('submit');
-      this.service.create(this.formFicha.value).subscribe(
-        success => console.log('sucesso'),
-        error => console.log('error')
-      );
-    }
   }
 
   onCancel() {
