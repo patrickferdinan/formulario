@@ -3,6 +3,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ficha } from '../shared/ficha';
 
+
 @Component({
   selector: 'app-formulario',
   templateUrl: './formulario.component.html',

@@ -8,11 +8,14 @@ import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormularioComponent } from './ficha/formulario/formulario.component';
 import { FichasService } from './fichas.service';
+import { ListaComponent } from './ficha/lista/lista.component';
+
 
 @NgModule({
   declarations: [
     AppComponent,
-    FormularioComponent
+    FormularioComponent,
+    ListaComponent
   ],
   imports: [
     BrowserModule,
