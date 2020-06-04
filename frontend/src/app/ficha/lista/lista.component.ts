@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { FichasService } from './../../fichas.service';
+import { Router } from '@angular/router';
 
 @Component({
   selector: 'app-lista',
@@ -8,7 +9,7 @@ import { FichasService } from './../../fichas.service';
 })
 export class ListaComponent implements OnInit {
 
-  constructor(public service: FichasService) { }
+  constructor(public router: Router, public service: FichasService) {}
 
   ngOnInit() {
     this.service.Listar()

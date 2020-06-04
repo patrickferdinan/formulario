@@ -6,7 +6,7 @@ import { Routes, RouterModule } from '@angular/router';
 
 
 const routes: Routes = [
-  {path: '', component: FormularioComponent},
+  {path: 'novo', component: FormularioComponent},
   {path: 'lista', component: ListaComponent},
 
   ...FichaRouter

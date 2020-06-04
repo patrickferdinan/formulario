@@ -42,6 +42,7 @@ export class FormularioComponent implements OnInit {
       });
 
     console.log(this.formFicha.value);
+    window.alert('Ficha cadastrada!');
   }
 
   onCancel() {
