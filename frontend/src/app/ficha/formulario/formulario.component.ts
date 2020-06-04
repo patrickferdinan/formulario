@@ -37,12 +37,13 @@ export class FormularioComponent implements OnInit {
     this.service.create(this.ficha)
       .subscribe(response => {
         console.log(response);
+        window.alert('Ficha cadastrada!');
+        this.formFicha.reset();
       }, error => {
         console.log(error);
       });
 
     console.log(this.formFicha.value);
-    window.alert('Ficha cadastrada!');
   }
 
   onCancel() {
