@@ -7,8 +7,9 @@ import { AppRoutingModule } from './app-routing.module';
 import { AppComponent } from './app.component';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { FormularioComponent } from './ficha/formulario/formulario.component';
-import { FichasService } from './fichas.service';
+import { FichasService } from './ficha/shared/fichas.service';
 import { ListaComponent } from './ficha/lista/lista.component';
+
 
 
 @NgModule({
@@ -22,7 +23,7 @@ import { ListaComponent } from './ficha/lista/lista.component';
     AppRoutingModule,
     BrowserAnimationsModule,
     ReactiveFormsModule,
-    HttpClientModule
+    HttpClientModule,
   ],
   providers: [FichasService],
   bootstrap: [AppComponent]

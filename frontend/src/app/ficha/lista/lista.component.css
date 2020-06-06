@@ -1,3 +1,6 @@
+.container {
+  margin: 20px;
+}
 .modal-overlay {
   background-color: rgba(0, 0, 0, 0.7);
   width: 100%;
@@ -7,12 +10,46 @@
 }
 
 .modal {
-  background: white;
   width: 90%;
   height: 90%;
   margin: 5vh auto;
   position: relative;
   padding-top: 20px;
   padding-left: 50px;
-  background: #f0f0f5;
+  background: BLACK;
+}
+.form-group {
+  margin-top: 20px;
+}
+
+label {
+  color: rgb(43, 151, 43);
+  font-size: larger;
+}
+
+form {
+  margin-top: 10px;
+  width: 900px;
+  text-align: left;
+
+}
+
+a {
+    color: rgb(43, 151, 43);
+    font-weight: 700;
+    transition: filter 0,2s;
+    text-decoration: none;
+    margin-left: 300px;
+}
+
+.logo {
+  position: absolute;
+  margin-left: 600px;
+  margin-top: 200px;
+
+}
+.fundo {
+  width: 100%;
+  height: 100%;
+  position: fixed;
 }

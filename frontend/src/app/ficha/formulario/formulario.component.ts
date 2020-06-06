@@ -1,7 +1,9 @@
-import { FichasService } from './../../fichas.service';
+import { Router } from '@angular/router';
+import { FichasService } from '../shared/fichas.service';
 import { Component, OnInit } from '@angular/core';
 import { FormBuilder, FormGroup, Validators } from '@angular/forms';
 import { Ficha } from '../shared/ficha';
+
 
 
 @Component({
@@ -14,7 +16,7 @@ export class FormularioComponent implements OnInit {
   submitted = false;
   ficha = new Ficha();
 
-  constructor(private formBuilder: FormBuilder, public service: FichasService) { }
+  constructor(public router: Router, public formBuilder: FormBuilder, public service: FichasService) { }
 
   ngOnInit() {
     this.formFicha = this.formBuilder.group({
@@ -39,6 +41,7 @@ export class FormularioComponent implements OnInit {
         console.log(response);
         window.alert('Ficha cadastrada!');
         this.formFicha.reset();
+        this.router.navigate(['/ficha/lista']);
       }, error => {
         console.log(error);
       });

@@ -1,5 +1,6 @@
+import { Ficha } from './../shared/ficha';
 import { Component, OnInit } from '@angular/core';
-import { FichasService } from './../../fichas.service';
+import { FichasService } from '../shared/fichas.service';
 import { Router } from '@angular/router';
 
 @Component({
@@ -8,6 +9,7 @@ import { Router } from '@angular/router';
   styleUrls: ['./lista.component.css']
 })
 export class ListaComponent implements OnInit {
+  ficha: Ficha[];
 
   constructor(public router: Router, public service: FichasService) {}
 
@@ -15,6 +17,7 @@ export class ListaComponent implements OnInit {
     this.service.Listar()
       .subscribe(response => {
         console.log(response);
+        this.ficha = response;
       },
       error => {
         console.log(error);

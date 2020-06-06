@@ -1,14 +1,14 @@
-import { FichaRouter } from './ficha/ficha.router';
-import { ListaComponent } from './ficha/lista/lista.component';
-import { FormularioComponent } from './ficha/formulario/formulario.component';
 import { NgModule } from '@angular/core';
 import { Routes, RouterModule } from '@angular/router';
+import { FichaRouter } from './ficha/ficha.router';
 
 
-const routes: Routes = [
-  {path: 'novo', component: FormularioComponent},
-  {path: 'lista', component: ListaComponent},
-
+export const routes: Routes = [
+  {
+    path: '',
+    redirectTo: '/ficha/novo',
+    pathMatch: 'full'
+  },
   ...FichaRouter
 
 ];

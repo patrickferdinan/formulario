@@ -1,7 +1,7 @@
-import { API } from './../config/api.config';
+import { API } from '../../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
-import { Ficha } from './ficha/shared/ficha';
+import { Ficha } from './ficha';
 import { Observable } from 'rxjs';
 
 @Injectable({
