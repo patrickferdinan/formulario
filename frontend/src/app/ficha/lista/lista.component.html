@@ -1,22 +1,31 @@
-
-  <div class="row">
-    <div class="col-md-12">
-      <table class="table table-hover">
-        <tbody *ngFor="let ficha of ficha">
-          <tr class="table-active">
-            <th scope="row">{{ ficha.cliente }}</th>
-            <td>{{ ficha.solicitante }}</td>
-            <td>{{ ficha.descricao }}</td>
-            <td>{{ ficha.data }}</td>
-          </tr>
-        </tbody>
-      </table>
-    </div>
-  </div>
-  <div class="col-md-12">
-    <div class="form-group text-center">
+<img class="fundo" src="assets/img.jpg" >
+<div class="modal-overlay">
+    <div class="modal">
+      <img class="logo" src="../../../assets/logo.png" alt="">
+      <div class="row">
+        <div class="col-md-12">
+          <table class="table table-hover">
+            <thead>
+              <tr class="header-form">
+                <th scope="col">Cliente</th>
+                <th scope="col">Solicitante</th>
+                <th scope="col">Descrição</th>
+                <th scope="col">Data</th>
+              </tr>
+            </thead>
+            <tbody *ngFor="let ficha of ficha">
+              <tr class="table-active">
+                <td>{{ ficha.cliente }}</td>
+                <td>{{ ficha.solicitante }}</td>
+                <td>{{ ficha.descricao }}</td>
+                <td>{{ ficha.data }}</td>
+              </tr>
+            </tbody>
+          </table>
+        </div>
+      </div>
       <a [routerLink]="['/ficha/novo']" class="btn btn-default">
-        <span aria-hidden="true"></span>Voltar
+        <span aria-hidden="true"></span>&larr; Voltar
       </a>
-    </div>
   </div>
+</div>
