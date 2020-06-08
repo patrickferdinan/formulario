@@ -43,7 +43,7 @@ export class FormularioComponent implements OnInit {
         this.formFicha.reset();
         this.router.navigate(['/ficha/lista']);
       }, error => {
-        console.log(error);
+        window.alert('Erro ao criar ficha!');
       });
 
     console.log(this.formFicha.value);
