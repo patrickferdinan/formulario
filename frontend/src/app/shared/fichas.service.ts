@@ -1,4 +1,4 @@
-import { API } from '../../../config/api.config';
+import { API } from '../../config/api.config';
 import { Injectable } from '@angular/core';
 import { HttpClient } from '@angular/common/http';
 import { Ficha } from './ficha';

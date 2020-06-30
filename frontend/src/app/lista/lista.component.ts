@@ -1,4 +1,4 @@
-import { Ficha } from './../shared/ficha';
+import { Ficha } from '../shared/ficha';
 import { Component, OnInit } from '@angular/core';
 import { FichasService } from '../shared/fichas.service';
 import { Router } from '@angular/router';

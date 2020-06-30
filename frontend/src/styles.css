@@ -6,12 +6,13 @@ html, body { height: 100%; }
   padding: 0;
   outline: 0;
   box-sizing: border-box;
+  src: "../../../assets/logo.png";
 
  }
 
  body {
   font: 400 14px Roboto, sans-serif;
-  background: #f0f0f5;
+  background:  rgb(184, 240, 191);
   -webkit-font-smoothing: antialiased;
  }
  input, button, textarea {

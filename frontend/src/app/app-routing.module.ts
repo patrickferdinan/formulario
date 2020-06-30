@@ -1,21 +1,13 @@
-import { NgModule } from '@angular/core';
-import { Routes, RouterModule } from '@angular/router';
-import { FichaRouter } from './ficha/ficha.router';
+import { ListaComponent } from './lista/lista.component';
+import { FormularioComponent } from './formulario/formulario.component';
+import { MenuComponent } from './menu/menu.component';
+import { RouterModule, Routes } from '@angular/router';
+import { ModuleWithProviders } from '@angular/core';
 
-
-export const routes: Routes = [
-  {
-    path: '',
-    redirectTo: '/ficha/novo',
-    pathMatch: 'full'
-  },
-  ...FichaRouter
-
+const APP_ROTAS: Routes = [
+  {path: '', component: MenuComponent},
+  {path: 'ficha', component: FormularioComponent},
+  {path: 'registro', component: ListaComponent}
 ];
 
-
-@NgModule({
-  imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
-})
-export class AppRoutingModule { }
+export const routing: ModuleWithProviders = RouterModule.forRoot(APP_ROTAS);
